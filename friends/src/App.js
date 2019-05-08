@@ -4,7 +4,7 @@ import './App.css';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
-// import FriendList from './components/FriendList';
+import FriendList from './components/FriendList'
 
 
 
@@ -33,7 +33,7 @@ class App extends React.Component {
         console.log(err);
         this.setState({ error: err.response.message });
       });
-
+          console.log(this.state.friends)
   }
 
   render() {
@@ -42,12 +42,12 @@ class App extends React.Component {
         <h1 className="store-header">My Friends</h1>
       <Route 
         exact path="/" 
-        render = {()=> 
-            <ItemList
-            {...props}
+        render = {(props)=> ( 
+            <FriendList
+              {...props}
               friends={this.state.friends}
              />
-            }
+             )}
         />
           </div>
 
